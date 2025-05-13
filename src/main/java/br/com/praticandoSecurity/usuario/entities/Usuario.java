@@ -17,8 +17,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome) {
-        this.id = id;
+    public Usuario( String nome) {
         this.nome = nome;
     }
 

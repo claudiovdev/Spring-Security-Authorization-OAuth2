@@ -1,6 +1,8 @@
 package br.com.praticandoSecurity.usuario.service;
 
+import br.com.praticandoSecurity.usuario.dto.UsuarioDto;
 import br.com.praticandoSecurity.usuario.dto.UsuarioResponse;
+import br.com.praticandoSecurity.usuario.entities.Usuario;
 import br.com.praticandoSecurity.usuario.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,5 +20,9 @@ public class UsuarioService {
         var usuarios = usuarioRepository.findAll();
         return UsuarioResponse.toResponse(usuarios);
 
+    }
+
+    public void criarUsuario(UsuarioDto usuarioDto) {
+        usuarioRepository.save(new Usuario(usuarioDto.getNome()));
     }
 }
