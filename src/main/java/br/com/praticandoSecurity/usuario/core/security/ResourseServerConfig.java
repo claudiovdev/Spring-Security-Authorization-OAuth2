@@ -24,7 +24,7 @@ public class ResourseServerConfig {
     @Bean
     public OpaqueTokenIntrospector introspector(){
         return new NimbusOpaqueTokenIntrospector(
-                "http://localhost:8081/oauth2/introspect",
+                "http://localhost:8083/oauth2/introspect",
                 "security-web",
                 "web123"
         );
