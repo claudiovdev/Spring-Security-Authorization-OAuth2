@@ -18,7 +18,7 @@ public class ResourseServerConfig {
         http
                 .authorizeHttpRequests((authorize) -> authorize.anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt());
-        return http.build();
+        return http.formLogin(Customizer.withDefaults()).build();
     }
 
     @Bean
