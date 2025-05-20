@@ -1,125 +1,86 @@
-﻿Spring-Security-Authorization-OAuth2
+# Spring-Security-Authorization-OAuth2
 
-Este projeto demonstra a implementação de um Authorization Server completo usando o Spring Authorization Server, com suporte a tokens JWT, PKCE, refresh token, armazenamento via JDBC, e customizações no token. Ele segue a especificação OAuth 2.1, e foi baseado no curso da AlgaWorks sobre Spring Security.
+Este projeto demonstra a implementação de um Authorization Server completo usando o **Spring Authorization Server**, com suporte a tokens **JWT**, **PKCE**, **refresh token**, **armazenamento via JDBC**, e **customizações no token**.  
+Baseado no curso da **AlgaWorks** e aderente à especificação **OAuth 2.1**, o projeto também cobre o uso de **Spring Security** como mecanismo de autenticação.
 
-🌟 Objetivo
+---
 
-Criar uma esteira completa de autenticação e autorização OAuth2, utilizando o Spring Security com:
+## 🌟 Objetivo
 
-Authorization Server
+Criar uma esteira completa de **autenticação e autorização OAuth2**, utilizando o **Spring Security** com:
 
-Resource Server
+- **Authorization Server**
+- **Resource Server**
+- **JWT**
+- **Introspect**
+- **JDBC**
+- **PKCE**
+- **Consentimento do usuário**
 
-JWT
+---
 
-Introspect
+## 🧪 Funcionalidades Implementadas
 
-JDBC
+### 🔐 Authorization Server
 
-PKCE
+- Geração de token JWT com customização
+- Implementação de fluxo **Client Credentials**
+- Implementação de fluxo **Authorization Code com PKCE**
+- Armazenamento de autorizações via JDBC
+- Suporte a **refresh token**
+- Página customizada de login
+- Página de consentimento do usuário
+- Cadastro de clientes em memória e via JDBC
 
-Consentimento do usuário
+### 📘 Resource Server
 
-🚀 Funcionalidades Implementadas
+- Proteção de endpoints com validação de token JWT
+- Extração de informações customizadas do token
+- Validação de escopos e authorities
 
-🔐 Authorization Server
+---
 
+## 🛠️ Tecnologias e Dependências
 
+- Java 17+
+- Spring Boot 3
+- Spring Security
+- Spring Authorization Server
+- Spring Data JPA
+- MySQL
+- JWT (Nimbus)
+- Postman (para testes dos fluxos OAuth2)
 
-🛡️ Resource Server
+---
 
+## ▶️ Como Executar
 
+1. Suba o banco MySQL com as tabelas de usuários, grupos e permissões.
+2. Configure os dados de conexão no `application.yml`.
+3. Execute o projeto com o perfil `default`.
+4. Acesse os fluxos de autenticação:
+   - `http://localhost:8083/oauth2/authorize` para iniciar o fluxo Authorization Code
+   - `http://localhost:8083/oauth2/token` para trocar o código por access_token
+   - `http://localhost:8083/oauth2/introspect` para introspecção do token (se estiver usando token opaco)
 
-🧪 Fluxos Testados
+---
 
-✅ Client Credentials com Postman
+## 📚 Baseado no Curso
 
-✅ Authorization Code + PKCE com navegador
+Este projeto foi desenvolvido com base no curso:
 
-✅ Refresh Token
+**Especialista Spring REST - Módulo Spring Authorization Server**  
+Instrutor: **AlgaWorks**
 
-✅ Introspect Token
+---
 
-✅ JWT customizado com authorities
+## ✍️ Autor
 
-✅ Login com UserDetails via banco de dados
+**Claudio Vinicius**  
+[GitHub]([https://github.com/claudiovdev](https://github.com/claudiovdev)) | [LinkedIn][(https://linkedin.com/in/seu-perfil](https://www.linkedin.com/in/claudiovdev/))  
 
-🧰 Tecnologias e Bibliotecas
+---
 
-Java 17
+## 📄 Licença
 
-Spring Boot 3.4.5
-
-Spring Security 6
-
-Spring Authorization Server 1.4.3
-
-Spring Data JPA
-
-Spring Web
-
-H2 / MySQL
-
-JWT (com Nimbus)
-
-Postman (para testes manuais)
-
-🧹 Estrutura do Projeto
-
-Módulo
-
-Descrição
-
-AuthorizationServerConfig.java
-
-Configura os clients, chaves RSA, settings de token e customização do JWT
-
-JpaUserDetailsService.java
-
-Autenticação baseada no banco de dados com carregamento de grupos e permissões
-
-ResourceServerConfig.java
-
-Configura o Resource Server para aceitar JWT
-
-WebSecurityConfig.java
-
-Gerencia login e configura o AuthenticationManager
-
-🧠 O que eu aprendi
-
-Como funciona o Authorization Code Flow com e sem PKCE
-
-Como proteger APIs com tokens JWT
-
-Como armazenar autorizações em banco (JDBC)
-
-Como montar e customizar tokens com authorities do usuário
-
-Como usar Refresh Token e configurar reuso
-
-Como estruturar login, consentimento e introspecção em um Authorization Server real
-
-▶️ Como rodar
-
-# Clone o projeto
-git clone [https://github.com/seu-usuario/Spring-Security-Authorization-OAuth2](https://github.com/claudiovdev/Spring-Security-Authorization-OAuth2).git
-
-# Navegue até o diretório
-cd Spring-Security-Authorization-OAuth2
-
-# Compile e rode o projeto
-./mvnw spring-boot:run
-
-Endpoints disponíveis:
-
-Authorization Server: http://localhost:8083
-
-Introspect: http://localhost:8083/oauth2/introspect
-
-Consentimento: http://localhost:8083/oauth2/authorize
-
-🧑‍💻 Autor
-
-Projeto criado durante o curso da AlgaWorks, com adaptações práticas e melhorias próprias para aprendizado.
-
+Este projeto está sob a licença MIT.
